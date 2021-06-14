@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "616899ae-2fdb-4238-96ca-e1643906428c",
+		"name": "movies-agency-testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Casting Assistant",
+			"item": [
+				{
+					"name": "Get Movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains drinks array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.movies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IllUTHFTdHE3MmxGVWtyWDV3WXNLQSJ9.eyJpc3MiOiJodHRwczovL2Rldi1wdWo4YmY5My51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBjN2E0ZDA2MTJkODIwMDcwYTYyZTE3IiwiYXVkIjoibW92aWVzLWFnZW5jeSIsImlhdCI6MTYyMzcwMDA2OSwiZXhwIjoxNjIzNzg2NDY5LCJhenAiOiI2cnhUbXJMc09oMkxCUmx1elM5a2w3VTJrbEVjNER3dyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiXX0.3oe9oriipbWe6bJedFwYejrJOff3NF74LqwZPB8Hnf-EjtSuGUEiLZ2Yv3QZemIe2ZB_xbOQRHspSW6EBWK1JLsq_Q2h0nBK3SCCOiiOujaT3bqLwT_PFm1XCYzXZwbKOApWeVB3shAjlu7BRoWrVqNBBPWm4w3Cu5VhpJP9RqShE6bdabJ30MDLhYlPIMEk6o_tEhnAzZvKDAGg4GXaLgmA1M9W3VrtiSpX0SlLdX9TwM4Fx3mGACIXxFHdNcn932YwDSXuclB4F9fZeCozWWp4iq86JGyogoHA6OXY5rg83G7uWxODIeAtDbqXm45gBjxOthZLfyOPAwra5xg4bg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Casting Director",
+			"item": [
+				{
+					"name": "Create Actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rihanna\",\r\n    \"age\": 34,\r\n    \"gender\": \"F\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/actors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Power book 2\",\r\n    \"release_date\": \"Date\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IllUTHFTdHE3MmxGVWtyWDV3WXNLQSJ9.eyJpc3MiOiJodHRwczovL2Rldi1wdWo4YmY5My51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBjN2E1NTFkMDJmNjUwMDY5NWMxMzliIiwiYXVkIjoibW92aWVzLWFnZW5jeSIsImlhdCI6MTYyMzcwMDE2MywiZXhwIjoxNjIzNzg2NTYzLCJhenAiOiI2cnhUbXJMc09oMkxCUmx1elM5a2w3VTJrbEVjNER3dyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiY3JlYXRlOmFjdG9ycyIsImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInVwZGF0ZTphY3RvcnMiLCJ1cGRhdGU6bW92aWVzIl19.ki1mVZ8AKYZppGq3oMStY-VWZ_j4n1oXx6J0C3Y2nqH4Twoo4f1APUaPKcrjsTUzj1CkVGVZ3jDECs2lil3fbD7tJYbIq9WbtHep8VzK5G1Sbl8y0dfgDR7F9QKlZ2MyxzUIb87ylCu-AF-Em_XRLjzyj_wjW-4gA9IFebuuAaUwzAS25uq3-gt8CJ9N3m8QhmjDeb6-VGCVm6kbrANpktfX4Ikh21EY7sqwxNFpPbmekYABHivo2lJtP4cUoh5bZ1SSZvnYGal90sL_4H5bpvpknIKBA8HpkeFoVjq84OQ8cks71oWwq-xBPMnA8rLsQ0OeDCLT2ixtQS3lpp47Tg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Executive Producer",
+			"item": [
+				{
+					"name": "Create Movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Power book 2\",\r\n    \"release_date\": \"Date\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains drinks array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.movies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IllUTHFTdHE3MmxGVWtyWDV3WXNLQSJ9.eyJpc3MiOiJodHRwczovL2Rldi1wdWo4YmY5My51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBjN2E1ODZkMDJmNjUwMDY5NWMxM2IyIiwiYXVkIjoibW92aWVzLWFnZW5jeSIsImlhdCI6MTYyMzcwMDIzNiwiZXhwIjoxNjIzNzg2NjM2LCJhenAiOiI2cnhUbXJMc09oMkxCUmx1elM5a2w3VTJrbEVjNER3dyIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiY3JlYXRlOmFjdG9ycyIsImNyZWF0ZTptb3ZpZXMiLCJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwidXBkYXRlOmFjdG9ycyIsInVwZGF0ZTptb3ZpZXMiXX0.Fs11ScwtTRpSEYEzAlaPWQkSt6_7edj9cOk_Kzt3rUjDULfjFzKsbi67RW_gzGDoCoywsiE5SCnojp41OpSXQjuRMITuFjZJohp4Ef5UhFGHkd7gHYvXGU9LMLPm94jNirvSriZnbFpjRN2TFqYeGCT5_uT2UN5jMJMHFYAaXi_e9kyWCeglgyEXQcvmFDt-p9EGN-I6B5phvB6MYu7A6kyZ8td9ELhG13pIDid-5YZ0xHA1gLmNot-ubMEIwPum20w4Txfp_Dyzhz5nguUCFv6g8SGdYYW1q9pD_LXq1Pt_iCh_CJLRI-Z9UcBJyMSB0zyk_58aDkbiMF0o4LIUmg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:5000"
+		}
+	]
+}
