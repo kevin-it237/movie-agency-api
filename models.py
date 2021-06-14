@@ -6,7 +6,7 @@ import os
 if os.environ['FLASK_ENV'] == 'production':
   database_path = os.environ['DATABASE_URL']
   if database_path.startswith("postgres://"):
-    uri = database_path.replace("postgres://", "postgresql://", 1)
+    database_path = database_path.replace("postgres://", "postgresql://", 1)
 else:
   database_name = "casting_agency_db"
   database_path = "postgresql://{}:{}@{}/{}".format('postgres', 'noelle','localhost:5432', database_name)
