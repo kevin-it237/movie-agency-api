@@ -41,7 +41,7 @@ class Movie(db.Model):
   __tablename__ = 'movies'
 
   id = Column(Integer, primary_key=True)
-  title = Column(String)
+  title = Column(String(255))
   release_date = Column(String)
   actors = db.relationship(
         "Actor",
