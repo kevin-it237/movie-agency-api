@@ -1,8 +1,11 @@
 from sqlalchemy import Column, String, Integer
 from flask_sqlalchemy import SQLAlchemy
+import os
 
-database_name = "casting_agency_db"
-database_path = "postgresql://{}:{}@{}/{}".format('postgres', 'noelle','localhost:5432', database_name)
+# database_name = "casting_agency_db"
+# database_path = "postgresql://{}:{}@{}/{}".format('postgres', 'noelle','localhost:5432', database_name)
+
+database_path = os.environ['DATABASE_URL']
 
 db = SQLAlchemy()
 
