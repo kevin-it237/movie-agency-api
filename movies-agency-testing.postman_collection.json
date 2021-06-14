@@ -352,7 +352,7 @@
 	"variable": [
 		{
 			"key": "url",
-			"value": "localhost:5000"
+			"value": "https://movies-agency.herokuapp.com"
 		}
 	]
 }
