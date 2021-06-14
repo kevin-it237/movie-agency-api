@@ -247,5 +247,5 @@ You need to be authenticated to access thses apis. Use the retured token after s
 To run the tests, run. Make sure you have right datas inside the database.  
 Replace the token inside the test_app.py file by a valid one.
 ```
-python test_flaskr.py
+python test_app.py
 ```
