@@ -76,8 +76,8 @@ You need to be authenticated to access thses apis. Use the retured token after s
 #### headers : authorization: Bearer token
 
 ### API URLS
-**Local: localhost:3000**
-**Live: https://movies-agency.herokuapp.com/**
+**Local: localhost:3000**  
+**Live: https://movies-agency.herokuapp.com/**  
 
 ### Movies Endpoints
 
