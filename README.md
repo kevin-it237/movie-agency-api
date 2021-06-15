@@ -1,23 +1,32 @@
 # Movie Agency api
 
+## Introduction and My Motivation
+The Movies Agency Api helps on managing movies and assigning actors to those movies. It helps to simplify and streamline the process.  
+My main motivation for this project is to challenge myself personally by demonstrating my abilities as a good Fullstack developer. This project allows me to self-assess and demonstrate that I have the necessary skills to work as a fullstack web developer.
+
 ## Getting Started
 
 ### Installing Dependencies
 
 #### Python 3.7
-
 Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
 
 #### Virtual Enviornment
 
 We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for your platform can be found in the [python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
 
+Use this command to create and activate a virtual environment: 
+```bash
+python venv -m env
+source activate env 
+``` 
+
 #### PIP Dependencies
 
 Once you have your virtual environment setup and running, install dependencies by naviging to the `/backend` directory and running:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 This will install all of the required packages we selected within the `requirements.txt` file.
@@ -32,7 +41,6 @@ This will install all of the required packages we selected within the `requireme
 
 ## Database Setup
 This project use postgresql
-```
 
 ## Running the server
 
@@ -40,11 +48,21 @@ From within the app directory first ensure you are working using your created vi
 
 To run the server, execute:
 
+**On Linux : export**
 ```bash
 export FLASK_APP=app
 export FLASK_ENV=development
 flask run
 ```
+
+**On Windows : set**
+```bash
+set FLASK_APP=app
+set FLASK_ENV=development
+flask run
+```
+
+
 
 Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
 
@@ -59,14 +77,17 @@ These are accounts to use for testing purposes based on roles:
 - Casting Assistant  
 **Email: mahili8515@greenkic.com*  
 **Password: mahili8515@greenkic.com*
+***Permissions: get:movies, get:actors***
 
 - Casting Director  
 **Email: yahipo5113@moxkid.com*  
 **Password: yahipo5113@moxkid.com*
+***Permissions: get:movies, get:actors, update:movies, update:actors, create:actors, delete:actors***
 
 - Executive Producer  
 **Email: pemex83684@gocasin.com*  
 **Password: pemex83684@gocasin.com*
+***Permissions: get:movies, get:actors, update:movies, update:actors, create:actors, delete:actors, create:movies, delete:movies***
 
 ## Endpoints
 
@@ -244,8 +265,11 @@ You need to be authenticated to access thses apis. Use the retured token after s
 
 
 ## Testing
-To run the tests, run. Make sure you have right datas inside the database.  
+To run the tests, create a database and update database setting inside the **test_app.py** file.
+Make sure you have right datas inside the database.  
 Replace the token inside the test_app.py file by a valid one.
+
+To run the tests
 ```
 python test_app.py
 ```
